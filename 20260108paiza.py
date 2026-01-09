@@ -316,7 +316,7 @@ B = int(value[3])
 
 for i in range(1,H+1):
     for N in range(1, W+1):
-        if N == H+1: #端のとこにきたら改行
+        if N == H+1: #端のとこにきたら改行a
             print("({}, {})".format(A, B))
         else:
             print("({}, {})".format(A, B), end=" | ")
