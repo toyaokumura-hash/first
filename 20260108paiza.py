@@ -325,3 +325,45 @@ for i in range(1,H+1):
 #　途中経過。標準入力①では正解できたが、その後の標準入力では外れてた
 #　改行位置と、＝の数を直せばいける気がする。
 #　時間的に一回PUSH
+#　翌日に続きしたやつ。見直してHとWが入れ替わってたりしたとこを直して、自力正解。これがランクC。
+#　上との比較でこちらも載せる
+value = input().split()
+H = int(value[0])
+W = int(value[1])
+A = int(value[2])
+B = int(value[3])
+
+for i in range(1,H+1): #今回のrangeはHとWだけで良かった。間違いではないけど短くしたいやんな
+    for N in range(1,W+1):
+        if N == W : #HとWを間違えてたから行と列が変になってた
+            print("({}, {})".format(A, B)) #この文をifの上に書けば、if結果が短くなってた
+        else:
+            print("({}, {})".format(A, B), end=" | ")
+    if i < H: #上では9になってる部分、数え直したら6だった
+            print("=" * (6 * W + 3 * (W - 1)))
+
+
+#　上とほぼ同じだが、条件に
+#　A と B は 9 けたになるように半角スペースを数値の前(右詰め)に埋めて出力してください。
+#　が追加されてる。
+
+
+value = input().split()
+H = int(value[0])
+W = int(value[1])
+A = int(value[2])
+B = int(value[3])
+
+for i in range(H): #今回のrangeはHとWだけで良かった。間違いではないけど短くしたいやんな
+    for N in range(W):
+        print(f'({A:>9}, {B:>9})', end="")
+        if N == W - 1 :
+            print()
+        else:
+            print(end=" | ")
+    if i < H-1:
+            print("=" * (22 * W + 3 * (W - 1)))
+
+#　こちらもほぼ自力正解できた。
+#　formatにformatを入れる書き方はできるか調べて、それを使った。正解例では"({: >9}, {: >9})".format(A, B)
+#　Google検索してみたらfストリング構文が主流ってことやったからそっちにした
