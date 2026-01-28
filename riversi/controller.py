@@ -21,10 +21,10 @@ class ReversiController:
         x += 1
         y += 1
         if self.rm.put(10 * y + x,self.turn):
-            self.turn = self.WHITE if self.BLACK else self.BLACK
+            self.turn = self.BLACK if self.turn == self.WHITE else self.WHITE
 
 
-
+    @property
     def board(self) -> tuple[tuple[int]]:
         """
         盤面を渡す
